@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<style>
+    form{
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    fieldset{
+        width: 850px;
+        height: 450px;
+        padding: 40px;
+        gap: 4px;
+    }
+</style>
+
 <body>
     <h1>Register</h1>
     <form action="{% url 'register' %}" method='post'>
