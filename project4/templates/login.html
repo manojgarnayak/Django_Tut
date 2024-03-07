@@ -17,7 +17,7 @@
 </style>
 <body>
     <h1>Login Page</h1>
-    <form method='post'>
+    <form action='{% url "login" %}' method='post'>
         {% csrf_token %}
         <fieldset>
          <legend>Login</legend>

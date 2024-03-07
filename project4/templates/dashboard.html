@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block content %}
+<style>
+    body{
+        margin-top: 20px;
+    }
+    h1{
+        font-weight: 800;
+        margin-top: 80px;
+    }
+    p{
+        font-style: italic;
+    }
+</style>
+<body>
+    <h1>Welcome to the Dashboard Page</h1>
+    {% if user.email|length %}
+    <h3>Hello {{user.fullname}}</h3>
+    <p>Your email id is: {{user.email}}</p>
+    {% else %}
+    <a href='{% url "login" %}'><h4>Login</h4></a>
+    {% endif %}
+    <h1></h1>
+</body>
+{% endblock %}

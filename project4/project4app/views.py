@@ -22,7 +22,8 @@ def login(request):
         for user in users:
             if user.email == email:
                 if user.password == password:
-                    return HttpResponse('Login Successfull')
+                    context = {'user': user}
+                    return render(request, 'dashboard.html', context)
                 return HttpResponse('Invalid Password')
         else:
             return HttpResponse('Invalid Email')
