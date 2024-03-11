@@ -21,5 +21,5 @@ from project6app.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('create_topic/', create_topic, name='create_topic'),
-    path('crete_webpage/', create_webpage, name='create_webpage')
+    path('create_webpage/', create_webpage, name='create_webpage')
 ]

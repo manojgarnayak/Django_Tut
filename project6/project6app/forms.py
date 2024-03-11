@@ -1,5 +1,5 @@
 from django import forms
-from project6app import *
+from project6app.models import *
 
 class TopicForm(forms.ModelForm):
     class Meta:
