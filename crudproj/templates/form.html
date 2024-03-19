@@ -59,7 +59,8 @@
     <div class="container">
         <h1>TODO List</h1>
         <fieldset>
-            <form action="">
+            <form action="" method="post">
+                {% csrf_token %}
                 <label for="title">Title:</label><br>
                 <input type="text" placeholder="Enter the title of the task" id="title"><br><br>
                 <label for="description">Description:</label><br>
