@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from todoapp.models import *
-from datetime import time
 # Create your views here.
 
 def todo(request):
@@ -10,6 +9,6 @@ def todo(request):
         title = request.POST.get('title')
         description = request.POST.get('description') 
         if title and description:
-            taskObj = TaskDetails(title = title, description = description, date = time.today())
+            taskObj = TaskDetails(title = title, description = description)
             taskObj.save()
     return render(request, 'form.html', d)
