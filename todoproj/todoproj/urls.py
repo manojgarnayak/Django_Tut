@@ -20,4 +20,5 @@ from todoapp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', todo, name= 'form'),
+    path('update/', update, name='update')
 ]

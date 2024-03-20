@@ -24,7 +24,7 @@
         fieldset{
             width: 100%;
         }
-        .form{
+        form{
             margin-top: 30px;
             margin-left: 10px;
             height: 350px;
@@ -75,58 +75,21 @@
             background-color: rgb(250, 82, 82);
             color: white;
         }
-        .button{
-            display: inline-block;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>TODO List</h1>
         <fieldset>
-            <form action="" method="post" class="form">
+            <form action="" method="post">
                 {% csrf_token %}
                 <label for="title">Title:</label><br>
                 <input type="text" placeholder="Enter the title of the task" id="title"  name='title'><br><br>
                 <label for="description">Description:</label><br>
                 <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter the description of the task"></textarea><br>
-                <button type="submit">Submit</button><br>
+                <button type="submit">Update</button><br>
             </form>
         </fieldset>
-        <table class="table">
-            {% if todos|length %}
-            <h3>Tasks</h3>
-            <thead>
-                <tr>
-                    <td>Sl.no</td>
-                    <td>Title</td>
-                    <td>Description</td>
-                    <td>Operations</td>
-                </tr>
-            </thead>
-            <tbody>
-                {% for todo in todos %}
-                <tr>
-                    <td>{{forloop.counter}}</td>
-                    <td>{{todo.title}}</td>
-                    <td>{{todo.description}}</td>
-                    <td class="button">
-                        <form action="{% url 'update' %}" method="get" style="display: inline-block;">
-                            <button class="update-btn">Update</button>
-                            <input type="text" value="{{todo.sno}}" style="display: none;" name="sno">
-                        </form>
-                        <form action="" method="get" style="display: inline-block;">
-                            <button class="delete-btn">Delete</button>
-                            <input type="text" value="{{todo.sno}}" name="sno" style="display: none">
-                        </form>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% else %}
-        <p>No tasks exists please add your first task</p>
-        {% endif %}
     </div>
 </body>
 </html>
