@@ -88,7 +88,7 @@
         <hr>
         <legend>Fill in the details below: </legend>
         <fieldset>
-            <form action="" method="get" class="form">
+            <form action="" method="POST" class="form">
                 {% csrf_token %}
                 <label for="name">Patient Name: </label>
                 <input type="text" placeholder="Enter patient name" id="name" name="name"><br><br>
@@ -119,9 +119,9 @@
                 {% for todo in todos %}
                 <tr>
                     <td>{{forloop.counter}}</td>
-                    <td>{{todo.name}}</td>
+                    <td>{{todo.patient_details}}</td>
                     <td>{{todo.phone}}</td>
-                    <td>{{todo.email}}</td>
+                    <td>{{todo.email_id}}</td>
                     <td>{{todo.disease_desc}}</td>
                     <td class="button">
                         <form action="{% url 'update' %}" method="get">

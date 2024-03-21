@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from management_app.models import *
+from django.http import HttpResponse
 # Create your views here.
 
 def dashboard(request):
