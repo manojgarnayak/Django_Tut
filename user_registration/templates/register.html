@@ -8,12 +8,14 @@
 <body>
     <center>
         <h1>Registration Page</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{UFO.as_p}}
-            {{PFO.as_p}}
-            <button type="submit">Register</button>
-        </form>
+        <fieldset>
+            <form method="post">
+                {% csrf_token %}
+                {{UFO.as_p}}
+                {{PFO.as_p}}
+                <button type="submit">Register</button>
+            </form>
+    </fieldset>
     </center>
 </body>
 </html>
