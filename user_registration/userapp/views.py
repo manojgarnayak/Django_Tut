@@ -1,6 +1,11 @@
 from django.shortcuts import render, HttpResponse
+from django.http import HttpResponseRedirect
 from userapp.forms import *
 from django.core.mail import send_mail
+from django.contrib.auth import authenticate
+from django.contrib.auth import login
+from django.urls import reverse
+
 # Create your views here.
 
 def register(request):
@@ -32,8 +37,21 @@ def register(request):
 
 
 def user_login(request):
+    if request.method == 'POST':
+        un = request.POST.get('un')
+        pw = request.POST.get('pw')
+        AUO = authenticate(username = un, password = pw)
+        if AUO and AUO.is_active:
+            login(request, AUO)
+            request.session['username'] = un
+            return HttpResponseRedirect(reverse('home'))
+        return HttpResponse('Invalid Credentials')
     return render(request, 'login.html')
 
 
 def home(request):
+    if request.session['username']:
+        un = request.session['username']
+        d = {'un':un}
+        return render(request, 'home.html',d)
     return render(request, 'home.html')
