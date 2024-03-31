@@ -3,8 +3,9 @@ from django.http import HttpResponseRedirect
 from userapp.forms import *
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -50,8 +51,32 @@ def user_login(request):
 
 
 def home(request):
-    if request.session['username']:
+    if request.session.get('username'):
         un = request.session['username']
         d = {'un':un}
         return render(request, 'home.html',d)
     return render(request, 'home.html')
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return render(request,'home.html')
+
+@login_required
+def user_profile(request):
+    un = request.session.get('username')
+    UO = User.objects.get(username = un)
+    PO = Profile.objects.get(username = UO)
+    d = {'UO':UO, 'PO':PO}
+    return render(request, 'user_profile.html', d)
+
+@login_required
+def change_password(request):
+    un = request.session.get('username')
+    if request.method == 'POST':
+        pw = request.POST.get('password')
+        UO = User.objects.get(username = un)
+        UO.set_password(pw)
+        UO.save()
+        return HttpResponse('Password changed Successfully')
+    return render(request, 'change_password.html')
