@@ -80,3 +80,6 @@ def change_password(request):
         UO.save()
         return HttpResponse('Password changed Successfully')
     return render(request, 'change_password.html')
+
+def reset_password(request):
+    return render(request, 'reset_password.html')
