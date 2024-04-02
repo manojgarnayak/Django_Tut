@@ -24,4 +24,7 @@ urlpatterns = [
     path('func_template', func_template, name='func_template'),
     path('class_template', class_template.as_view(), name='class_template'),
     path('Template_view', Template_view.as_view(), name='Template_view'),
+    path('functionbasedview', functionbasedview, name='functionbasedview'),
+    path('classbasedview', classbasedview.as_view(), name='classbasedview'),
+    path('formview', formviewtemplate.as_view(), name = 'formviewtemplate')
 ]
