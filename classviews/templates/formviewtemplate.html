@@ -9,6 +9,7 @@
     <center>
         <form method="post">
             {% csrf_token %}
+            <h1>Form class view</h1>
             {{form.as_p}}
             <button type="submit">Submit</button>
         </form>

@@ -26,5 +26,9 @@ urlpatterns = [
     path('Template_view', Template_view.as_view(), name='Template_view'),
     path('functionbasedview', functionbasedview, name='functionbasedview'),
     path('classbasedview', classbasedview.as_view(), name='classbasedview'),
-    path('formview', formviewtemplate.as_view(), name = 'formviewtemplate')
+    path('formview', formviewtemplate.as_view(), name = 'formviewtemplate'),
+    path('schoolslist', schoolslist, name='schoolslist'),
+    path('school_view', SchoolList.as_view(), name='schoolview'),
+    path('student_view', StudentList.as_view(), name='studentview'),
+    path('student-register', studentregister.as_view(), name='student-register'),
 ]

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import View, TemplateView, FormView
+from django.views.generic import View, TemplateView, FormView, ListView
 from app.forms import *
 # Create your views here.
 
@@ -52,7 +52,29 @@ class formviewtemplate(FormView):
     template_name = 'formviewtemplate.html'
     form_class = SchoolForm
     
-    
     def form_valid(self, form):
         form.save()
         return HttpResponse('InsertSchoolBYFV is done')
+    
+
+################################################# Displaying the objects inside the db #########################
+def schoolslist(request):
+    schools = School.objects.all()
+    d = {'schools':schools}
+    return render(request, 'schoolslist.html',d)
+
+class SchoolList(ListView):
+    model = School
+    context_object_name = 'schools'
+
+class StudentList(ListView):
+    model = Student
+    context_object_name = 'schools'
+
+class studentregister(FormView):
+    template_name = 'studentregister.html'
+    form_class = StudentForm
+    
+    def form_valid(self, form):
+        form.save()
+        return HttpResponse('Student form is submitted')
