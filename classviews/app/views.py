@@ -57,7 +57,7 @@ class formviewtemplate(FormView):
         return HttpResponse('InsertSchoolBYFV is done')
     
 
-################################################# Displaying the objects inside the db #########################
+###################################   Displaying the objects inside the db  #########################
 def schoolslist(request):
     schools = School.objects.all()
     d = {'schools':schools}
