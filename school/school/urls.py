@@ -21,5 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('InsertSchool', InsertSchool.as_view(), name='InsertSchool'),
     path('InsertStudent', InsertStudent.as_view(), name='InsertStudent'),
-    path('schoolobj<sname>', obj, name='schoolobj'),
+    # path('schoolobj<sname>', obj, name='schoolobj'),
+    path('School_list', School_list.as_view(), name='School_list'),
+    path('School_<pk>', School_detail.as_view(), name='School_detail'),
+    path('Update_<pk>', Update_detail.as_view(), name='Update_detail')
 ]

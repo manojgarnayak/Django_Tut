@@ -10,7 +10,7 @@ class School(models.Model):
         return self.school_name
     
 class Student(models.Model):
-    school_name = models.ForeignKey(School, on_delete=models.CASCADE)
+    school_name = models.ForeignKey(School, on_delete=models.CASCADE, related_name="students")
     student_name = models.CharField(max_length=50)
     student_age = models.IntegerField()
 

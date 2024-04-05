@@ -10,7 +10,11 @@
         <form action="" method="post">
             {% csrf_token %}
             {{form.as_p}}
-            <button type="submit">Register</button>
+            {% if form.instance.pk %}
+                <button type="submit">Update</button>
+            {% else %}
+                <button type="submit">Register</button>
+            {% endif %}
         </form>
     </center>
 </body>
