@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Are you sure? You want to delete {{schobject.school_name}} school</h3>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="{% url 'School_list' %}">No, Take me back to School List</a>
+    <a href="School_{{schobject.school_name}}">No, Take me back to Details page</a>
+</body>
+</html>

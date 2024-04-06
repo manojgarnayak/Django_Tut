@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from app.models import *
-from django.views.generic import CreateView, ListView, DetailView, UpdateView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -33,3 +33,9 @@ class Update_detail(UpdateView):
     model = School
     fields = '__all__'
     success_url = 'School_list'
+
+class Delete_school(DeleteView):
+    model = School
+    context_object_name = 'schobject'
+    success_url = 'School_list'
+    template_name='app/School_confirm_delete.html'

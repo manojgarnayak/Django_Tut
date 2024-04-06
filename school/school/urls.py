@@ -24,5 +24,6 @@ urlpatterns = [
     # path('schoolobj<sname>', obj, name='schoolobj'),
     path('School_list', School_list.as_view(), name='School_list'),
     path('School_<pk>', School_detail.as_view(), name='School_detail'),
-    path('Update_<pk>', Update_detail.as_view(), name='Update_detail')
+    path('Update_<pk>', Update_detail.as_view(), name='Update_detail'),
+    path('Delete_<pk>', Delete_school.as_view(), name='Delete_school'),
 ]
